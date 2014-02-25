@@ -24,3 +24,8 @@ We have three <b>types</b> for relations:
 * ennemy
 
 Please keep the descriptions and bios to at most 3 sentences.
+
+## Data Sources
+
+* [For biographies](http://en.wikipedia.org/wiki/List_of_Harry_Potter_characters)
+* [For relations](http://harrypotter.wikia.com/wiki/Main_Page)
