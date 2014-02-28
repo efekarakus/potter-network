@@ -38,7 +38,7 @@ function displayNetwork() {
 	};
 
 
-	var width = 970,
+	var width = 770,
 		height = 500;
 
     var tip = d3.tip()
