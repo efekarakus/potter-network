@@ -96,10 +96,24 @@ function displayNetwork()
 
 function _drawOpaqueEdges(triad)
 {
-    var edges = d3.select(".network").selectAll("line");
+    console.log("mouseover");
+    var edges = d3.select(".network")
+        .selectAll("line");
+    console.log(edges);
+    edges
+        .style("opacity", function(d) {
+            console.log(d);
+            if (d.triads.indexOf(triad) > -1) {
+                return 1;
+            } else {
+                return 0.2;
+            }
+        });
 }
 
 function _restoreEdges()
 {
-
+    console.log("restore");
+    d3.select(".network").selectAll("line")
+        .style("opacity", 1);
 }

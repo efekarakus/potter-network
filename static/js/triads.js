@@ -47,8 +47,8 @@ function _displayT1(svg)
 
     _drawTriad(g,nodes,edges,labels);
 
-    g.on("mousemove", _drawOpaqueEdges('T3'));
-    g.on("mouseout", _restoreEdges());
+    g.on("mouseover", function() {_drawOpaqueEdges('T3')});
+    g.on("mouseout", function() {_restoreEdges()});
 }
 
 function _drawTriad(g,nodes,edges,labels)
