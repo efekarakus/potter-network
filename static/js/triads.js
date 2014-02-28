@@ -17,10 +17,15 @@ function displayTriads()
         .attr("width", width)
         .attr("height", height);
 
-    _displayT1(svg);
+    var gT3 = _T3(svg);
+
+
+    d3.select("body").on("click", function() {
+        _restoreEdges();
+    });
 }
 
-function _displayT1(svg) 
+function _T3(svg) 
 {
     var nodes = [
         {"cx": 185, "cy":80, "r": 8},
@@ -47,8 +52,10 @@ function _displayT1(svg)
 
     _drawTriad(g,nodes,edges,labels);
 
-    g.on("mouseover", function() {_drawOpaqueEdges('T3')});
-    g.on("mouseout", function() {_restoreEdges()});
+    g.on("click", function() {_drawOpaqueEdges('T3')});
+    //g.on("mouseout", function() {_restoreEdges()});
+
+    return g;
 }
 
 function _drawTriad(g,nodes,edges,labels)

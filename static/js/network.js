@@ -26,7 +26,7 @@ function displayNetwork()
 	    {source:  4, target:  5, type: "enemy", triads: ['T2', 'T4']},
 	    {source:  5, target:  6, type: "enemy", triads: ['T2', 'T4']},
 	    {source:  5, target:  7, type: "ally", triads: ['T3', 'T1']},
-	    {source:  6, target:  7, type: "enemy", triads: ['T3', 'T1']},
+	    {source:  6, target:  7, type: "enemy", triads: ['T2', 'T4']},
 	    {source:  6, target:  8, type: "ally", triads: ['T3', 'T1']},
 	    {source:  7, target:  8, type: "ally", triads: ['T3', 'T1']},
 	    {source:  9, target:  4, type: "ally", triads: ['T3', 'T1']},
@@ -96,24 +96,17 @@ function displayNetwork()
 
 function _drawOpaqueEdges(triad)
 {
-    console.log("mouseover");
     var edges = d3.select(".network")
         .selectAll("line");
-    console.log(edges);
     edges
+        .transition()
         .style("opacity", function(d) {
-            console.log(d);
-            if (d.triads.indexOf(triad) > -1) {
-                return 1;
-            } else {
-                return 0.2;
-            }
+            return d.triads.indexOf(triad) > -1 ? 1 : 0.2;
         });
 }
 
 function _restoreEdges()
 {
-    console.log("restore");
     d3.select(".network").selectAll("line")
         .style("opacity", 1);
 }
