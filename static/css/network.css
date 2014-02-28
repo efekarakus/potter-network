@@ -13,3 +13,46 @@
     stroke: #fff;
     stroke-width: 2;
 }
+
+.bio-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    height: 100px;
+    width: 150px;
+    pointer-events: none;
+}
+
+.bio-tip h1 {
+    margin-top: -5px;
+    font-size: 15px;
+    color: #fff;
+    text-decoration:underline;
+}
+
+.bio-tip p {
+    font-size: 10px;
+    color: #fff;
+}
+
+.bio-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25C0";
+    position: absolute;
+    pointer-events: none;
+    text-align: center;
+}
+
+.bio-tip.e:after {
+    margin: -14px 0 0 0;
+    top: 50%;
+    left: -8px;
+}

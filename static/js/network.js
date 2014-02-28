@@ -1,6 +1,20 @@
 function displayNetwork() {
 	var graph = {
-	  nodes: d3.range(13).map(Object),
+	  nodes: [
+        {name: "Harry Potter", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Lord Voldemort", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Ron Weasley", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Hermione Granger", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Sirius Black", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Cho Chang", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Vincent Crabbe", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Fleur Delacour", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Albus Dumbledore", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Argus Filch", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Igor Karkaroff", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Rubeus Hagrid", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+        {name: "Bellatrix Lestrange", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+      ],
 	  links: [
 	    {source:  0, target:  1, type: "ally"},
 	    {source:  1, target:  2, type: "ally"},
@@ -23,12 +37,26 @@ function displayNetwork() {
 	  ]
 	};
 
+
 	var width = 970,
 		height = 500;
+
+    var tip = d3.tip()
+        .attr('class', 'bio-tip')
+        .direction('e')
+        .offset([0,10])
+        .html(function(d) {
+            var html = "";
+            html += "<h1>"+d.name+"</h1>";
+            html += "<p>"+d.bio+"</p>";
+            return html;
+        });
 
 	var svg = d3.select(".network").append("svg")
 		.attr("width", width)
 		.attr("weight", height);
+
+    svg.call(tip);
 
 	var force = d3.layout.force()
 		.nodes(graph.nodes)
@@ -50,7 +78,9 @@ function displayNetwork() {
 		.data(graph.nodes)
 	 .enter().append("circle")
 		.attr("class", "node")
-		.attr("r", 8);
+		.attr("r", 8)
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
 
 	function tick() {
 		link.attr("x1", function(d) { return d.source.x; })
