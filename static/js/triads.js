@@ -12,7 +12,7 @@ var TRIAD_COUNTS = {
  */
 function displayTriads() 
 {
-    var width  = 770, height = 100;
+    var width  = 770, height = 130;
     var svg = d3.select(".triads").append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -40,10 +40,11 @@ function _T3(svg)
     ];
 
     var labels = [
-        {"x": 190, "y":49, "label": "+"},
-        {"x": 215, "y":90, "label": "+"},
-        {"x": 238, "y":49, "label": "+"},
-        {"x": 212, "y":60, "label": TRIAD_COUNTS["T3"]}
+        {"x": 190, "y":49, "label": "+", "style": "none"},
+        {"x": 215, "y":90, "label": "+", "style": "none"},
+        {"x": 238, "y":49, "label": "+", "style": "none"},
+        {"x": 212, "y":60, "label": TRIAD_COUNTS["T3"], "style": "none"},
+        {"x": 212, "y":110, "label": "T3", "style": "italic"}
     ];
 
 
@@ -53,7 +54,6 @@ function _T3(svg)
     _drawTriad(g,nodes,edges,labels);
 
     g.on("click", function() {_drawOpaqueEdges('T3')});
-    //g.on("mouseout", function() {_restoreEdges()});
 
     return g;
 }
@@ -88,6 +88,7 @@ function _drawTriad(g,nodes,edges,labels)
          .attr("y", function(d) { return d.y; })
          .text(function(d) { return d.label; })
          .attr("font-size", "15px")
+         .attr("font-style", function(d) { return (d.style === "none") ? "" : "italic";})
          .attr("fill", "white");
 
 }

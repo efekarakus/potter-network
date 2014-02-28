@@ -28,3 +28,21 @@ body {
     margin-bottom: 5px;
     border-bottom: 1px solid white;
 }
+
+.description {
+    font-size: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.description a {
+    color: #fff;
+}
+
+.description a:hover {
+    color: #50BD91;
+}
+
+.description span.i {
+    font-style:italic;
+}
