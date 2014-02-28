@@ -55,7 +55,7 @@ function displayNetwork()
 
 	var svg = d3.select(".network").append("svg")
 		.attr("width", width)
-		.attr("weight", height);
+		.attr("height", height);
 
     svg.call(tip);
 
