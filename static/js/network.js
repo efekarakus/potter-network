@@ -44,7 +44,7 @@ function displayNetwork() {
     var tip = d3.tip()
         .attr('class', 'bio-tip')
         .direction('e')
-        .offset([0,10])
+        .offset([0,15])
         .html(function(d) {
             var html = "";
             html += "<h1>"+d.name+"</h1>";
