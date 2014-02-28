@@ -1,0 +1,30 @@
+@font-face {
+    font-family: HarryPotter;
+    src: url('../fonts/HARRYP__.TTF');
+}
+
+body {
+    background: #404041;
+    width: 970px;
+    font-family: georgia, "times new roman",times,sans-serif;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+.header h1 {
+    font-family: HarryPotter;
+    font-size: 60px;
+    text-align: center;
+
+}
+
+.separator {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid white;
+}
