@@ -1,4 +1,5 @@
-function displayNetwork() {
+function displayNetwork() 
+{
 	var graph = {
 	  nodes: [
         {name: "Harry Potter", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
@@ -16,24 +17,24 @@ function displayNetwork() {
         {name: "Bellatrix Lestrange", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
       ],
 	  links: [
-	    {source:  0, target:  1, type: "ally"},
-	    {source:  1, target:  2, type: "ally"},
-	    {source:  2, target:  0, type: "enemy"},
-	    {source:  1, target:  3, type: "ally"},
-	    {source:  3, target:  2, type: "ally"},
-	    {source:  3, target:  4, type: "enemy"},
-	    {source:  4, target:  5, type: "enemy"},
-	    {source:  5, target:  6, type: "enemy"},
-	    {source:  5, target:  7, type: "ally"},
-	    {source:  6, target:  7, type: "enemy"},
-	    {source:  6, target:  8, type: "ally"},
-	    {source:  7, target:  8, type: "ally"},
-	    {source:  9, target:  4, type: "ally"},
-	    {source:  9, target: 11, type: "ally"},
-	    {source:  9, target: 10, type: "enemy"},
-	    {source: 10, target: 11, type: "enemy"},
-	    {source: 11, target: 12, type: "ally"},
-	    {source: 12, target: 10, type: "ally"}
+	    {source:  0, target:  1, type: "ally", triads: ['T3', 'T1']},
+	    {source:  1, target:  2, type: "ally", triads: ['T3', 'T1']},
+	    {source:  2, target:  0, type: "enemy", triads: ['T2', 'T4']},
+	    {source:  1, target:  3, type: "ally", triads: ['T3', 'T1']},
+	    {source:  3, target:  2, type: "ally", triads: ['T3', 'T1']},
+	    {source:  3, target:  4, type: "enemy", triads: ['T2', 'T4']},
+	    {source:  4, target:  5, type: "enemy", triads: ['T2', 'T4']},
+	    {source:  5, target:  6, type: "enemy", triads: ['T2', 'T4']},
+	    {source:  5, target:  7, type: "ally", triads: ['T3', 'T1']},
+	    {source:  6, target:  7, type: "enemy", triads: ['T3', 'T1']},
+	    {source:  6, target:  8, type: "ally", triads: ['T3', 'T1']},
+	    {source:  7, target:  8, type: "ally", triads: ['T3', 'T1']},
+	    {source:  9, target:  4, type: "ally", triads: ['T3', 'T1']},
+	    {source:  9, target: 11, type: "ally", triads: ['T3', 'T1']},
+	    {source:  9, target: 10, type: "enemy", triads: ['T2', 'T4']},
+	    {source: 10, target: 11, type: "enemy", triads: ['T2', 'T4']},
+	    {source: 11, target: 12, type: "ally", triads: ['T3', 'T1']},
+	    {source: 12, target: 10, type: "ally", triads: ['T3', 'T1']}
 	  ]
 	};
 
@@ -91,4 +92,14 @@ function displayNetwork() {
 		node.attr("cx", function(d) { return d.x; })
 			.attr("cy", function(d) { return d.y; });
 	}
+}
+
+function _drawOpaqueEdges(triad)
+{
+    var edges = d3.select(".network").selectAll("line");
+}
+
+function _restoreEdges()
+{
+
 }

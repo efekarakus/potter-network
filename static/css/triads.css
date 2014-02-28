@@ -1,0 +1,31 @@
+.triads .ally-link {
+    stroke: #F6EB13;
+    stroke-width: 2;
+}
+
+.triads .enemy-link {
+    stroke: #50BD91;
+    stroke-width: 2;
+}
+
+.triads .node {
+    fill: #000;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+.triads .T3:hover {
+    cursor: pointer;
+}
+
+.triads .T1:hover {
+    cursor: pointer;
+}
+
+.triads .T2:hover {
+    cursor: pointer;
+}
+
+.triads .T4:hover {
+    cursor: pointer;
+}
