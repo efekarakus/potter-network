@@ -1,0 +1,15 @@
+.network .ally-link {
+    stroke: #F6EB13;
+    stroke-width: 2;
+}
+
+.network .enemy-link {
+    stroke: #50BD91;
+    stroke-width: 2;
+}
+
+.network .node {
+    fill: #000;
+    stroke: #fff;
+    stroke-width: 2;
+}
