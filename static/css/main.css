@@ -36,11 +36,11 @@ body {
 }
 
 .description a {
-    color: #fff;
+    color: #50BD91;
 }
 
 .description a:hover {
-    color: #50BD91;
+    color: #F6EB13;
 }
 
 .description span.i {
