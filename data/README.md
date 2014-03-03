@@ -4,10 +4,10 @@ Please enter the data by Sunday 03/02/2014
 
 ## Data Entry
 
-* Craig: IDs between [1,20]
-* Jatin: IDs between [21,37]
-* Josh: IDs between [37,53]
-* Efe: IDs between [53,65]
+* Craig: IDs between [0,19]
+* Jatin: IDs between [20,36]
+* Josh: IDs between [37,52]
+* Efe: IDs between [53,64]
 
 ## Files To Be Modified
 
