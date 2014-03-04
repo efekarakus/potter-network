@@ -10,7 +10,7 @@ d3.json("data/graph.json", function(error,graph){
     });
 
 	var width = 770,
-		height = 500;
+		height = 600;
 	var svg = d3.select(".network").append("svg")
 		.attr("width", width)
 		.attr("height", height);
@@ -32,15 +32,16 @@ d3.json("data/graph.json", function(error,graph){
 		.nodes(graph.nodes)
 		.links(graph.links)
 		.size([width, height])
-		.charge(-1000)
+		.charge(-200)
+        .distance(100)
 		.on("tick", tick)
 		.start();
+    console.log(force);
 
 	var link = svg.selectAll(".link")
 		.data(graph.links)
 	 .enter().append("line")
 		.attr("class", function(d) {
-            console.log(d);
             if (d.type === "+") return "ally-link";
             else return "enemy-link";
         });
