@@ -1,46 +1,19 @@
 function displayNetwork() 
 {
-	var graph = {
-	  nodes: [
-        {name: "Harry Potter", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Lord Voldemort", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Ron Weasley", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Hermione Granger", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Sirius Black", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Cho Chang", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Vincent Crabbe", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Fleur Delacour", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Albus Dumbledore", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Argus Filch", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Igor Karkaroff", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Rubeus Hagrid", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-        {name: "Bellatrix Lestrange", bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
-      ],
-	  links: [
-	    {source:  0, target:  1, type: "ally", triads: ['T3', 'T1']},
-	    {source:  1, target:  2, type: "ally", triads: ['T3', 'T1']},
-	    {source:  2, target:  0, type: "enemy", triads: ['T2', 'T0']},
-	    {source:  1, target:  3, type: "ally", triads: ['T3', 'T1']},
-	    {source:  3, target:  2, type: "ally", triads: ['T3', 'T1']},
-	    {source:  3, target:  4, type: "enemy", triads: ['T2', 'T0']},
-	    {source:  4, target:  5, type: "enemy", triads: ['T2', 'T0']},
-	    {source:  5, target:  6, type: "enemy", triads: ['T2', 'T0']},
-	    {source:  5, target:  7, type: "ally", triads: ['T3', 'T1']},
-	    {source:  6, target:  7, type: "enemy", triads: ['T2', 'T0']},
-	    {source:  6, target:  8, type: "ally", triads: ['T3', 'T1']},
-	    {source:  7, target:  8, type: "ally", triads: ['T3', 'T1']},
-	    {source:  9, target:  4, type: "ally", triads: ['T3', 'T1']},
-	    {source:  9, target: 11, type: "ally", triads: ['T3', 'T1']},
-	    {source:  9, target: 10, type: "enemy", triads: ['T2', 'T0']},
-	    {source: 10, target: 11, type: "enemy", triads: ['T2', 'T0']},
-	    {source: 11, target: 12, type: "ally", triads: ['T3', 'T1']},
-	    {source: 12, target: 10, type: "ally", triads: ['T3', 'T1']}
-	  ]
-	};
+d3.json("data/graph.json", function(error,graph){
+    if (error) return console.warn(error);
 
+    var links = graph.links;
+    links.forEach(function(d) {
+        d.source = +d.source;
+        d.target = +d.target;
+    });
 
 	var width = 770,
 		height = 500;
+	var svg = d3.select(".network").append("svg")
+		.attr("width", width)
+		.attr("height", height);
 
     var tip = d3.tip()
         .attr('class', 'bio-tip')
@@ -52,10 +25,6 @@ function displayNetwork()
             html += "<p>"+d.bio+"</p>";
             return html;
         });
-
-	var svg = d3.select(".network").append("svg")
-		.attr("width", width)
-		.attr("height", height);
 
     svg.call(tip);
 
@@ -71,7 +40,8 @@ function displayNetwork()
 		.data(graph.links)
 	 .enter().append("line")
 		.attr("class", function(d) {
-            if (d.type === "ally") return "ally-link";
+            console.log(d);
+            if (d.type === "+") return "ally-link";
             else return "enemy-link";
         });
 
@@ -92,6 +62,7 @@ function displayNetwork()
 		node.attr("cx", function(d) { return d.x; })
 			.attr("cy", function(d) { return d.y; });
 	}
+});
 }
 
 function _drawOpaqueEdges(triad)

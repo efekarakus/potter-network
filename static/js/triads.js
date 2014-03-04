@@ -1,8 +1,8 @@
 var TRIAD_COUNTS = {
-    "T3": 20,
-    "T1": 30,
-    "T2": 5,
-    "T0": 100
+    "T3": 195,
+    "T1": 208,
+    "T2": 108,
+    "T0": 29
 }
 
 
@@ -47,7 +47,7 @@ function _T3(svg)
         {"x": 190, "y":49, "label": "+", "style": "none"},
         {"x": 215, "y":90, "label": "+", "style": "none"},
         {"x": 238, "y":49, "label": "+", "style": "none"},
-        {"x": 212, "y":60, "label": TRIAD_COUNTS["T3"], "style": "none"},
+        {"x": 209, "y":60, "label": TRIAD_COUNTS["T3"], "style": "none"},
         {"x": 212, "y":110, "label": "T3", "style": "italic"}
     ];
 
@@ -85,7 +85,7 @@ function _T1(svg)
         {"x": 290, "y":49, "label": "-", "style": "none"},
         {"x": 315, "y":90, "label": "+", "style": "none"},
         {"x": 343, "y":49, "label": "-", "style": "none"},
-        {"x": 315, "y":60, "label": TRIAD_COUNTS["T1"], "style": "none"},
+        {"x": 309, "y":60, "label": TRIAD_COUNTS["T1"], "style": "none"},
         {"x": 312, "y":110, "label": "T1", "style": "italic"}
     ];
 
@@ -120,7 +120,7 @@ function _T2(svg)
         {"x": 390, "y":49, "label": "+", "style": "none"},
         {"x": 415, "y":90, "label": "-", "style": "none"},
         {"x": 438, "y":49, "label": "+", "style": "none"},
-        {"x": 412, "y":60, "label": TRIAD_COUNTS["T2"], "style": "none"},
+        {"x": 409, "y":60, "label": TRIAD_COUNTS["T2"], "style": "none"},
         {"x": 412, "y":110, "label": "T2", "style": "italic"}
     ];
 
@@ -156,7 +156,7 @@ function _T0(svg)
         {"x": 490, "y":49, "label": "-", "style": "none"},
         {"x": 515, "y":90, "label": "-", "style": "none"},
         {"x": 543, "y":49, "label": "-", "style": "none"},
-        {"x": 508, "y":60, "label": TRIAD_COUNTS["T0"], "style": "none"},
+        {"x": 511, "y":60, "label": TRIAD_COUNTS["T0"], "style": "none"},
         {"x": 512, "y":110, "label": "T0", "style": "italic"}
     ];
 
