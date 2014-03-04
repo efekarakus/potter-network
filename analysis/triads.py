@@ -105,9 +105,11 @@ def get_triads(edges):
 
 def write_triads(triads,edges):
     j = []
+    seen = Set([])
     for edge in triads:
         s = edge[0]
         t = edge[1]
+        seen.add((s,t))
         l = edges[(s,t)]
         tr = list(triads[(s,t)])
         j.append({
@@ -116,6 +118,19 @@ def write_triads(triads,edges):
             'type': l,
             'triads': tr
         })
+    for edge in edges:
+        s = edge[0]
+        t = edge[1]
+        if (s,t) in seen or (t,s) in seen:
+            continue
+        seen.add((s,t))
+        j.append({
+            'source': s,
+            'target': t,
+            'type': edges[(s,t)],
+            'triads': []
+        })
+
     with open(OUT_PATH, 'w') as f:
         json.dump(j,f)
 
