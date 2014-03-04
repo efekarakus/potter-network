@@ -134,7 +134,29 @@ def write_triads(triads,edges):
     with open(OUT_PATH, 'w') as f:
         json.dump(j,f)
 
+def print_stats(triads):
+    T3 = 0
+    T1 = 0
+    T2 = 0
+    T0 = 0
+    for edge in triads:
+        for t in triads[edge]:
+            if t == 'T3':
+                T3 += 1
+            elif t == 'T2':
+                T2 += 1
+            elif t == 'T1':
+                T1 += 1
+            else:
+                T0 += 1
+    print "T3: " + str(T3)
+    print "T1: " + str(T1)
+    print "T2: " + str(T2)
+    print "T0: " + str(T0)
+
+
 if __name__=='__main__':
     edges = read_edges()
     triads = get_triads(edges)
-    write_triads(triads,edges)
+    #write_triads(triads,edges)
+    print_stats(triads)
