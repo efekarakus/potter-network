@@ -1,12 +1,12 @@
 id,name,bio
-0,Regulus Arcturus Black,Brother of Sirius. Used to be a death-eather but defected.
+0,Regulus Arcturus Black,Brother of Sirius. Used to be a Death Eater but defected.
 1,Sirius Black,Best friend of James Potter and godfather of Harry.
 2,Lavender Brown,Killed by a werewolf. She was a gryffindor student who dated Ron. 
 3,Cho Chang,Ravenclaw student who dated Cedric Diggory and Harry Potter.
 4,Vincent Crabbe Sr.,Father of Crabbe and death-eater who escaped Azkaban.
 5,Vincent Crabbe,Slytherin student who was best friends with Goyle and followed Draco.
-6,Bartemius “Barty” Crouch Sr.,Head of the department of Internation Magical Cooperation. Killed by his son.
-7,Bartemius “Barty” Crouch Jr.,Death eather who impersonated Alastor Moody.
+6,"Bartemius ""Barty"" Crouch Sr.",Head of the department of Internation Magical Cooperation. Killed by his son.
+7,"Bartemius ""Barty"" Crouch Jr.",Death Eater who impersonated Alastor Moody.
 8,Fleur Delacour,Participated in the Triwizard tournament and married Bill Weasley.
 9,Cedric Diggory,Participated in the Triwizard tournament and got killed by Voldemort.
 10,Alberforth Dumbledore,Albus' brother and owner of Hog's Head.
@@ -18,13 +18,13 @@ id,name,bio
 16,Seamus Finnigan,Harry's friend and member of Dumbledore's army.
 17,Nicolas Flamel,Creator of the Philosopher's Stone.
 18,Cornelius Fudge,Minister of Magic that was forced to resign.
-19,Goyle Sr.,Death eather and father of Gregory Goyle.
-20,Gregory Goyle,Best friend of Crabbe, slytherin student and dies by falling into Fiendfyre.
+19,Goyle Sr.,Death Eater and father of Gregory Goyle.
+20,Gregory Goyle,Best friend of Crabbe. Slytherin student and dies by falling into Fiendfyre.
 21,Hermione Granger,One of Harry's best friend and marries Ron Weasley.
 22,Rubeus Hagrid,Half-giant who loves Harry. He was the keeper of Keys and Grounds at Hogwards.
 23,Igor Karkaroff,Highmaster of Durmstrang and reformed death-eater.
-24,Viktor Krum,Participant in the Triwizard tournament, dated Hermione.
-25,Bellatrix Lestrange,Death eather who was killed by Molly Weasley.
+24,Viktor Krum,Participant in the Triwizard tournament. Dated Hermione.
+25,Bellatrix Lestrange,Death Eater who was killed by Molly Weasley.
 26,Alice Longbottom,Mother of Neville who was tortured by Bellatrix.
 27,Frank Longbottom,Father of Neville who was tortured by Bellatrix.
 28,Neville Longbottom,Gryffindor student who was a member of Dumbledore's army.
@@ -36,7 +36,7 @@ id,name,bio
 34,Narcissa Malfoy,Mother of Draco and sister of Bellatrix.
 35,Olympe Maxime,Half-giantess and headmistress of Beauxbatons.
 36,Minerva McGonagall,Professor of Transfiguration and head of Gryffindor.
-37,Alastor “Mad-Eye” Moody,Retired auror and member of the order of the Phoenix. Killed by Voldemort.
+37,"Alastor ""Mad-Eye"" Moody",Retired auror and member of the order of the Phoenix. Killed by Voldemort.
 38,Peter Pettigrew,Betrays James and Lily Potter. Follower of Voldemort.
 39,Harry Potter,The boy who lived. Main character of the series.
 40,James Potter,Father of Harry. Murdered by Voldemort.
