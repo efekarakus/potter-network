@@ -2,8 +2,8 @@ import csv
 from sets import Set
 import json
 
-IN_PATH = './edges.csv'
-OUT_PATH = './edges.json'
+IN_PATH = './relations.csv'
+OUT_PATH = './relations.json'
 
 def read_edges():
     edges = {}
@@ -59,18 +59,19 @@ def _get_neighbors(edges):
     return neighbors
 
 def _prune_triads(triads):
-    redundant = Set([])
+    edges = []
     for edge in triads:
+        edges.append(edge)
+    for edge in edges:
         s = edge[0]
         t = edge[1]
-        if (t,s) in triads and not ((s,t) in redundant or (t,s) in redundant):
-            redundant.add((t,s))
-    for edge in redundant:
-        del triads[edge]
+        if (t,s) in triads:
+            del triads[edge]
 
 def get_triads(edges):
     neighbors = _get_neighbors(edges)
     triads = {}
+    triad_counts = {}
     for key in edges:
         s = key[0]
         s_neighbors = neighbors[s]
@@ -84,7 +85,11 @@ def get_triads(edges):
                 l2 = edges[(s,n1)]
                 l3 = edges[(s,n2)]
 
+                triangle = sorted([s,n1,n2])
                 t = _get_triad_type([l1,l2,l3])
+
+                if not tuple(triangle) in triad_counts:
+                    triad_counts[tuple(triangle)] = t
                 
                 if not (n1,n2) in triads:
                     triads[(n1,n2)] = Set([t])
@@ -101,7 +106,7 @@ def get_triads(edges):
                 else:
                     triads[(s,n2)].add(t)
         _prune_triads(triads)
-    return triads
+    return (triads, triad_counts)
 
 def write_triads(triads,edges):
     j = []
@@ -121,6 +126,8 @@ def write_triads(triads,edges):
     for edge in edges:
         s = edge[0]
         t = edge[1]
+        if s == '64':
+            print s,t
         if (s,t) in seen or (t,s) in seen:
             continue
         seen.add((s,t))
@@ -134,21 +141,21 @@ def write_triads(triads,edges):
     with open(OUT_PATH, 'w') as f:
         json.dump(j,f)
 
-def print_stats(triads):
+def print_stats(triad_counts):
     T3 = 0
     T1 = 0
     T2 = 0
     T0 = 0
-    for edge in triads:
-        for t in triads[edge]:
-            if t == 'T3':
-                T3 += 1
-            elif t == 'T2':
-                T2 += 1
-            elif t == 'T1':
-                T1 += 1
-            else:
-                T0 += 1
+    for triangle in triad_counts:
+        t = triad_counts[triangle]
+        if t == 'T3':
+            T3 += 1
+        elif t == 'T2':
+            T2 += 1
+        elif t == 'T1':
+            T1 += 1
+        else:
+            T0 += 1
     print "T3: " + str(T3)
     print "T1: " + str(T1)
     print "T2: " + str(T2)
@@ -157,6 +164,6 @@ def print_stats(triads):
 
 if __name__=='__main__':
     edges = read_edges()
-    triads = get_triads(edges)
-    #write_triads(triads,edges)
-    print_stats(triads)
+    (triads,triad_counts) = get_triads(edges)
+    write_triads(triads,edges)
+    print_stats(triad_counts)

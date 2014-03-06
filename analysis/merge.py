@@ -2,12 +2,13 @@ import csv
 import json
 
 nodes_path = './nodes.csv'
-edges_path = './edges.json'
+edges_path = './relations.json'
 graph_path = './graph.json'
 
 def get_nodes():
     nodes = []
     with open(nodes_path, 'r') as f:
+        next(f)
         reader = csv.reader(f)
         for row in reader:
             nid = row[0]

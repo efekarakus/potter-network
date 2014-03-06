@@ -32,8 +32,8 @@ d3.json("data/graph.json", function(error,graph){
 		.nodes(graph.nodes)
 		.links(graph.links)
 		.size([width, height])
-		.charge(-200)
-        .distance(100)
+		.charge(-50)
+        .distance(200)
 		.on("tick", tick)
 		.start();
     console.log(force);
