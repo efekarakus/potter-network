@@ -262,12 +262,13 @@
           height     = tbbox.height,
           x          = tbbox.x,
           y          = tbbox.y,
-          scrollEl   = document.documentElement? document.documentElement : document.body,
-          scrollTop  = scrollEl.scrollTop,
-          scrollLeft = scrollEl.scrollLeft
+          scrollEl   = document.documentElement? document.documentElement : document.body;
+        
+      var scrollTop  = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;//scrollEl.scrollTop,
+      var scrollLeft = scrollEl.scrollLeft;
   
-  
-      point.x = x + scrollLeft
+        console.log(y,scrollTop) 
+      point.x = x + scrollLeft 
       point.y = y + scrollTop
       bbox.nw = point.matrixTransform(matrix)
       point.x += width
