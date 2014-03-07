@@ -13,12 +13,12 @@ body {
 }
 
 .header {
-    margin-top: 20px;
+    margin-bottom: -30px;
 }
 
 .header h1 {
     font-family: HarryPotter;
-    font-size: 60px;
+    font-size: 80px;
     text-align: center;
 
 }
