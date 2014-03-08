@@ -38,7 +38,6 @@ function displayNetwork()
             .distance(300)
             .on("tick", tick)
             .start();
-        console.log(force);
 
         var link = svg.selectAll(".link")
             .data(graph.links)
@@ -75,7 +74,7 @@ function _drawOpaqueEdges(triad)
     edges
         .transition()
         .style("opacity", function(d) {
-            return d.triads.indexOf(triad) > -1 ? 1 : 0.2;
+            return d.triads.indexOf(triad) > -1 ? 1 : 0.05;
         });
 }
 
@@ -83,4 +82,28 @@ function _restoreEdges()
 {
     d3.select(".network").selectAll("line")
         .style("opacity", 1);
+}
+
+function highlightDiameter()
+{
+    var edges = d3.select(".network")
+        .selectAll("line");
+
+    edges.transition()
+        .style("opacity", function(d) {
+            var source = d.source.index;
+            var target = d.target.index;
+            function isDiameterEdge(a,b) {
+                if (source === a && target === b) { console.log(source,target); return true;}
+                if (source === b && target === a) { console.log(source,target); return true;}
+                return false;
+            }
+            if (isDiameterEdge(19,45)) return 1;
+            else if (isDiameterEdge(45,1)) return 1;
+            else if (isDiameterEdge(1,39)) return 1;
+            else if (isDiameterEdge(39,62)) return 1;
+            else {
+                return 0.05;
+            }
+        });
 }
