@@ -61,3 +61,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
+
+#diameter:hover {
+    color: #F6EB13;
+}
