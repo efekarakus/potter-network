@@ -14,6 +14,10 @@
     stroke-width: 2;
 }
 
+.network .node:hover {
+    cursor: pointer;
+}
+
 .bio-tip {
     line-height: 1;
     font-weight: bold;

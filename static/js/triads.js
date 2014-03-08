@@ -27,6 +27,12 @@ function displayTriads()
         _restoreTriads();
         _restoreEdges();
     });
+
+    setTimeout(function() {
+        _drawCleanTriad('T0');
+        _drawOpaqueTriads('T0');
+        _drawOpaqueEdges('T0');
+    }, 1000);
 }
 
 function _T3(svg) 

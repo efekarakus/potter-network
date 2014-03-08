@@ -53,7 +53,11 @@ function displayNetwork()
             .attr("class", "node")
             .attr("r", r)
             .on('mouseover', tip.show)
-            .on('mouseout', tip.hide);
+            .on('mouseout', tip.hide)
+            .on('click', function(d) {
+                _displayConnections(d.index);
+                d3.event.stopPropagation();
+            });
 
         function tick() {
             link.attr("x1", function(d) { return d.source.x; })
@@ -82,6 +86,21 @@ function _restoreEdges()
 {
     d3.select(".network").selectAll("line")
         .style("opacity", 1);
+}
+
+function _displayConnections(id)
+{
+    var edges = d3.select(".network")
+        .selectAll("line");
+
+    edges.transition()
+        .style("opacity", function(d) {
+            var source = d.source.index;
+            var target = d.target.index;
+
+            if (source === id || target === id) return 1;
+            else return 0.05;
+        });
 }
 
 function highlightDiameter()

@@ -57,6 +57,8 @@ if __name__=='__main__':
     G = read_graph()
     max_dist = -1
     max_path = []
+    total = 0
+    count = 0
     for start in G:
         for end in G:
             if start == end: continue
@@ -67,9 +69,12 @@ if __name__=='__main__':
                 if end==start: break
                 end = P[end]
             path.reverse()
+            total += len(path) - 1
+            count += 1
             if len(path) <= max_dist: continue
             max_dist = len(path)
             max_path = path
         # endfor
     # endfor
+    print total, count
     print max_dist, max_path
