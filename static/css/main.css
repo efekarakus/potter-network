@@ -36,13 +36,23 @@ body {
 }
 
 .description a {
-    color: #50BD91;
+    color: #F6EB13;
 }
 
 .description a:hover {
-    color: #F6EB13;
+    color: #00F677;
 }
 
 .description span.i {
     font-style:italic;
+}
+
+.description span.by {
+    font-weight:bold;
+    color: #F6EB13;
+}
+
+.description span.bg {
+    font-weight:bold;
+    color: #00F677;
 }
