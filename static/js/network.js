@@ -34,7 +34,7 @@ function displayNetwork()
             .nodes(graph.nodes)
             .links(graph.links)
             .size([width, height])
-            .charge(0)
+            .charge(-100)
             .distance(300)
             .on("tick", tick)
             .start();
