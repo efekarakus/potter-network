@@ -267,7 +267,6 @@
       var scrollTop  = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;//scrollEl.scrollTop,
       var scrollLeft = scrollEl.scrollLeft;
   
-        console.log(y,scrollTop) 
       point.x = x + scrollLeft 
       point.y = y + scrollTop
       bbox.nw = point.matrixTransform(matrix)
