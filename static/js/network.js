@@ -119,10 +119,10 @@ function highlightDiameter()
                 if (source === b && target === a) { console.log(source,target); return true;}
                 return false;
             }
-            if (isDiameterEdge(19,45)) return 1;
-            else if (isDiameterEdge(45,1)) return 1;
-            else if (isDiameterEdge(1,39)) return 1;
-            else if (isDiameterEdge(39,62)) return 1;
+            if (isDiameterEdge(19,20)) return 1;
+            else if (isDiameterEdge(20,21)) return 1;
+            else if (isDiameterEdge(21,28)) return 1;
+            else if (isDiameterEdge(28,26)) return 1;
             else {
                 return 0.05;
             }
