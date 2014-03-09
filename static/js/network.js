@@ -9,7 +9,7 @@ function displayNetwork()
             d.target = +d.target;
         });
 
-        var width = 770,
+		var width = $(".network").width(),    // was 770 : Use the width setting from the element
             height = 600;
 
         var r = 8;
