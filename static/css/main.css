@@ -65,3 +65,7 @@ body {
 #diameter:hover {
     color: #F6EB13;
 }
+
+.bottom-space {
+    height: 80px;
+}
