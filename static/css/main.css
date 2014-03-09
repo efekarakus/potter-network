@@ -4,8 +4,12 @@
 }
 
 body {
+}
+
+.pottermain {
     background: #404041;
-    width: 770px;
+    border: none;
+    width: 100%;
     font-family: georgia, "times new roman",times,sans-serif;
     color: white;
     margin-left: auto;
