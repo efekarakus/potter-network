@@ -121,8 +121,8 @@ function highlightDiameter()
             }
             if (isDiameterEdge(19,20)) return 1;
             else if (isDiameterEdge(20,21)) return 1;
-            else if (isDiameterEdge(21,28)) return 1;
-            else if (isDiameterEdge(28,26)) return 1;
+            else if (isDiameterEdge(21,29)) return 1;
+            else if (isDiameterEdge(29,30)) return 1;
             else {
                 return 0.05;
             }
