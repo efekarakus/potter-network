@@ -18,6 +18,11 @@
     cursor: pointer;
 }
 
+.network g text {
+    fill: #fff;
+    font-size: 12px;
+}
+
 .bio-tip {
     line-height: 1;
     font-weight: bold;

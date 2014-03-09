@@ -51,7 +51,8 @@ function displayNetwork()
 
         var node = svg.selectAll(".node")
             .data(graph.nodes)
-         .enter().append("circle")
+         .enter().append("g")
+            .append("circle")
             .attr("class", "node")
             .attr("r", r)
             .on('mouseover', tip.show)
@@ -61,6 +62,17 @@ function displayNetwork()
                 d3.event.stopPropagation();
             });
 
+        var labels = svg.selectAll("g")
+            .append("text")
+            .attr("x", function(d) {return d.x-4;})
+            .attr("y", function(d) {return d.y+4;})
+            .text(function (d) {
+                if (d.index === 39){ return "H";}
+                else if (d.index === 45) { return "V";}
+                else return "";
+            });
+
+
         function tick() {
             link.attr("x1", function(d) { return d.source.x; })
                 .attr("y1", function(d) { return d.source.y; })
@@ -69,6 +81,15 @@ function displayNetwork()
 
             node.attr("cx", function(d) { return d.x = Math.max(r+1, Math.min(width-r-1,d.x)); })
                 .attr("cy", function(d) { return d.y = Math.max(r+1, Math.min(height-r-1,d.y)); });
+
+            labels
+                .attr("x", function(d) {return d.x-4})
+                .attr("y", function(d) {return d.y+4})
+                .text(function (d) {
+                    if (d.index === 39){ console.log(d); return "H";}
+                    else if (d.index === 45) { console.log(d); return "V";}
+                    else return "";
+                });
         }
     });
 }
@@ -126,5 +147,20 @@ function highlightDiameter()
             else {
                 return 0.05;
             }
+        });
+}
+
+function _displayHarryAndVoldemort()
+{
+    var edges = d3.select(".network")
+        .selectAll("line");
+
+    edges.transition()
+        .style("opacity", function(d) {
+            var source = d.source.index;
+            var target = d.target.index;
+            if (source === 39 || target === 39) return 1;
+            if (source === 45 || target === 45) return 1;
+            return 0.05;
         });
 }
