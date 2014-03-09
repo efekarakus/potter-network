@@ -64,6 +64,7 @@ function displayNetwork()
 
         var labels = svg.selectAll("g")
             .append("text")
+            .attr("class","node-text")
             .attr("x", function(d) {return d.x-4;})
             .attr("y", function(d) {return d.y+4;})
             .text(function (d) {

@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 
-.network g text {
+text.node-text {
     fill: #fff;
     font-size: 12px;
 }
@@ -40,35 +40,14 @@
 
 .bio-tip h1 {
     margin-top: 2px;
-    font-size: 15px;
+    font-size: 16px;
     color: #fff;
     text-decoration:underline;
 }
 
 .bio-tip p {
-    font-size: 10px;
+    margin-top: -5px;
+    font-size: 13px;
     color: #fff;
     width: 100%;
 }
-
-/*
-Commented code that works for adding a trianle
-.bio-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 20px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25C0";
-    position: absolute;
-    pointer-events: none;
-    text-align: center;
-}
-
-.bio-tip.e:after {
-    top: 50%;
-    margin: -10px;
-    left: -98px;
-}
-*/
