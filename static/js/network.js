@@ -4,6 +4,7 @@ function displayNetwork()
         if (error) return console.warn(error);
 
         var links = graph.links;
+
         links.forEach(function(d) {
             d.source = +d.source;
             d.target = +d.target;
@@ -73,7 +74,6 @@ function displayNetwork()
                 else return "";
             });
 
-
         function tick() {
             link.attr("x1", function(d) { return d.source.x; })
                 .attr("y1", function(d) { return d.source.y; })
@@ -87,8 +87,8 @@ function displayNetwork()
                 .attr("x", function(d) {return d.x-4})
                 .attr("y", function(d) {return d.y+4})
                 .text(function (d) {
-                    if (d.index === 39){ console.log(d); return "H";}
-                    else if (d.index === 45) { console.log(d); return "V";}
+                    if (d.index === 39){ return "H";}
+                    else if (d.index === 45) { return "V";}
                     else return "";
                 });
         }
@@ -137,8 +137,8 @@ function highlightDiameter()
             var source = d.source.index;
             var target = d.target.index;
             function isDiameterEdge(a,b) {
-                if (source === a && target === b) { console.log(source,target); return true;}
-                if (source === b && target === a) { console.log(source,target); return true;}
+                if (source === a && target === b) { return true;}
+                if (source === b && target === a) { return true;}
                 return false;
             }
             if (isDiameterEdge(19,20)) return 1;
