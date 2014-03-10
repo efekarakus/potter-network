@@ -4,7 +4,7 @@ Harry Potter Character Network Visualization.
 Exploring whether it exhibits the same properties as a real social network.
 
 ## Installation
-This guide thakes place in the Mac OSX Terminal.
+This guide takes place in the Mac OSX Terminal.
 ```
 cd ~/Sites/
 git clone git@github.com:efekarakus/potter-network.git
